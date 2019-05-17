@@ -1,0 +1,34 @@
+PODS:
+  - Reusable (4.1.0):
+    - Reusable/Storyboard (= 4.1.0)
+    - Reusable/View (= 4.1.0)
+  - Reusable/Storyboard (4.1.0)
+  - Reusable/View (4.1.0)
+  - Swinject (2.6.0)
+  - SwinjectAutoregistration (2.6.0):
+    - Swinject (~> 2.6)
+  - SwinjectStoryboard (2.2.0):
+    - Swinject (~> 2.6)
+
+DEPENDENCIES:
+  - Reusable
+  - Swinject
+  - SwinjectAutoregistration
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Reusable
+    - Swinject
+    - SwinjectAutoregistration
+    - SwinjectStoryboard
+
+SPEC CHECKSUMS:
+  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
+  SwinjectAutoregistration: 93a908f7543c401b0c315305ac0ae501efdbce89
+  SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
+
+PODFILE CHECKSUM: 22085e34df517359124686438801e64522b87ab9
+
+COCOAPODS: 1.6.1
