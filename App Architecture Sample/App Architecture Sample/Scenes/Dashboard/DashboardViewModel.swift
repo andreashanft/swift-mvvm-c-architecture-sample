@@ -15,7 +15,7 @@ class DashboardViewModel {
         self.coordinator = coordinator
     }
     
-    func buttonPressed() {
+    func openSearchPressed() {
         coordinator.navigate(to: .search)
     }
 }

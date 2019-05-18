@@ -12,4 +12,5 @@ public enum AppState: String, CaseIterable {
     case dashboard = "Dashboard"
     case settings = "Settings"
     case search = "Search"
+    case login = "Login (Not implemented on purpose)"
 }

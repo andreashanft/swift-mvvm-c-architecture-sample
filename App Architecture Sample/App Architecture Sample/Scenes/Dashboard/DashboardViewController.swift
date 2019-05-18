@@ -11,12 +11,12 @@ import Reusable
 
 class DashboardViewController: UIViewController, StoryboardBased {
     var viewModel: DashboardViewModel?
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func onButtonPressed(_ sender: Any) {
-        viewModel?.buttonPressed()
+    @IBAction func onOpenSearchPressed(_ sender: Any) {
+        viewModel?.openSearchPressed()
     }
 }

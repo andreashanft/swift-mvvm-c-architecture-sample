@@ -13,13 +13,26 @@ public protocol RootCoordinator {
     func coordinate(in window: UIWindow?, initialState: AppState)
 }
 
-public protocol CoordinatorType: class {
+public protocol CoordinatorType: AnyObject {
     associatedtype ControllerType: UIViewController
     
+    /**
+        Returns the view controller coordinated by this coordinator.
+     
+        - If the view controller has not yet been created,
+        `instantiateViewController()` will be invoked.
+        - The default implementation creates a view controller of the type specified
+        as `associatedtype` and by calling `init()`.
+    */
     var viewController: ControllerType { get }
+    
+    /**
+        Internal property used to store the coordinated view controller.
+    
+        **Important:** Must be implemented as a **weak** stored property to avoid retain cycles.
+     */
     var controllerStorage: ControllerType? { get set }
 
-    func resetViewController()
     func instantiateViewController() -> ControllerType
 }
 
@@ -35,33 +48,43 @@ public extension CoordinatorType {
        return ControllerType()
     }
     
-    func resetViewController() {
-        controllerStorage = nil
+    func dismiss() {
+        viewController.presentingViewController?.dismiss(animated: true)
     }
 }
 
-public protocol NavigatableCoordinator {
+public protocol NavigatableCoordinator: class {
     func navigate(to state: AppState)
+    func willShow(_ coordinator: NavigatableChildCoordinator)
 }
 
 public protocol NavigatableChildCoordinator: NavigatableCoordinator {
+    /// **Important:** Must be implemented as a **weak** stored property to avoid retain cycles.
     var parent: NavigatableCoordinator? { get set }
+}
+
+public extension NavigatableCoordinator {
+    func willShow(_ coordinator: NavigatableChildCoordinator) {
+        coordinator.parent = self
+    }
 }
 
 public extension NavigatableChildCoordinator {
     func navigate(to state: AppState) {
-        if let parent = parent {
-            parent.navigate(to: state)
+        guard let parent = parent else {
+            print("Child coordinator \(String(describing: self)) has no parent! Did you call 'willShow(childCoordinator)'?")
+            return
         }
+        parent.navigate(to: state)
     }
 }
 
 class SomeCoordinatorImplementation: CoordinatorType, NavigatableChildCoordinator {
     public typealias ControllerType = UITabBarController
-    public var controllerStorage: UITabBarController?
-    public var parent: NavigatableCoordinator?
+    weak var controllerStorage: UITabBarController?
+    weak var parent: NavigatableCoordinator?
     
-    public func instantiateViewController() -> UITabBarController {
+    func instantiateViewController() -> UITabBarController {
         return UITabBarController()
     }
 }

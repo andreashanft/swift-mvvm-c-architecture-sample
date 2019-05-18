@@ -14,4 +14,12 @@ class SearchViewModel {
     init(coordinator: SearchCoordinator) {
         self.coordinator = coordinator
     }
+    
+    func closePressed() {
+        coordinator.dismiss()
+    }
+    
+    func unavailableRoutePressed() {
+        coordinator.navigate(to: .login)
+    }
 }

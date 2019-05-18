@@ -11,8 +11,8 @@ import UIKit
 
 class SearchCoordinator: CoordinatorType, NavigatableChildCoordinator {    
     public typealias ControllerType = SearchViewController
-    public var controllerStorage: SearchViewController?
-    public var parent: NavigatableCoordinator?
+    weak var controllerStorage: SearchViewController?
+    weak var parent: NavigatableCoordinator?
 
     func instantiateViewController() -> SearchViewController {
         return SearchViewController.instantiate()

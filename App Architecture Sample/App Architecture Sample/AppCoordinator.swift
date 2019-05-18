@@ -14,13 +14,17 @@ import SwinjectAutoregistration
 
 class AppCoordinator: CoordinatorType, NavigatableCoordinator {
     public typealias ControllerType = UITabBarController
-    public var controllerStorage: UITabBarController?
+    weak var controllerStorage: UITabBarController?
+    
+    private var dashboardCoordinator: DashboardCoordinator
+    private var settingsCoordinator: SettingsCoordinator
+    
+    init(container: Container = SwinjectStoryboard.defaultContainer) {
+        dashboardCoordinator = container ~> DashboardCoordinator.self
+        settingsCoordinator = container ~> SettingsCoordinator.self
+    }
 
     public func instantiateViewController() -> UITabBarController {
-        let container = SwinjectStoryboard.defaultContainer
-        let dashboardCoordinator = container ~> DashboardCoordinator.self
-        let settingsCoordinator = container ~> SettingsCoordinator.self
-        
         let controller = UITabBarController()
         let viewControllers = [
             dashboardCoordinator.viewController,
@@ -34,17 +38,18 @@ class AppCoordinator: CoordinatorType, NavigatableCoordinator {
     func navigate(to state: AppState) {
         switch state {
         case .dashboard:
+            willShow(dashboardCoordinator)
             viewController.selectedIndex = 0
         case .settings:
+            willShow(settingsCoordinator)
             viewController.selectedIndex = 1
         default:
-            fatalError("No route to state \(state.rawValue) available")
+            fatalError("No route to AppState '\(state.rawValue)' available")
         }
     }
 }
 
 extension AppCoordinator: RootCoordinator {
-    
     public func coordinate(in window: UIWindow?, initialState: AppState) {
         if let window = window {
             window.rootViewController = viewController

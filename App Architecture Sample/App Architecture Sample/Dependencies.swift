@@ -28,7 +28,6 @@ public func registerDependencies() {
     }
     container.autoregister(SearchViewModel.self, initializer: SearchViewModel.init)
 
-    
     container.storyboardInitCompleted(SettingsViewController.self) { resolver, controller in
         controller.viewModel = resolver ~> SettingsViewModel.self
     }

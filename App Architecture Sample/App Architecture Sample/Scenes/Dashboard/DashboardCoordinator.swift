@@ -15,10 +15,10 @@ import SwinjectAutoregistration
 
 class DashboardCoordinator: CoordinatorType, NavigatableChildCoordinator {
     public typealias ControllerType = DashboardViewController
-    public var controllerStorage: DashboardViewController?
-    public var parent: NavigatableCoordinator?
+    weak var controllerStorage: DashboardViewController?
+    weak var parent: NavigatableCoordinator?
 
-    public func instantiateViewController() -> DashboardViewController {
+    func instantiateViewController() -> DashboardViewController {
         return DashboardViewController.instantiate()
     }
     
@@ -27,9 +27,10 @@ class DashboardCoordinator: CoordinatorType, NavigatableChildCoordinator {
         case .search:
             let container = SwinjectStoryboard.defaultContainer
             let searchCoordinator = container ~> SearchCoordinator.self
+            willShow(searchCoordinator)
             viewController.present(searchCoordinator.viewController, animated: true)
         default:
-            fatalError()
+            parent?.navigate(to: state)
         }
     }
 }

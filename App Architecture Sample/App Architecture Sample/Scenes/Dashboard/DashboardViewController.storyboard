@@ -25,14 +25,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3b-VM-Ceq">
-                                <rect key="frame" x="100" y="100" width="120" height="60"/>
+                                <rect key="frame" x="70" y="100" width="180" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="XRb-Cy-3KH"/>
-                                    <constraint firstAttribute="width" constant="120" id="uXs-we-SW4"/>
+                                    <constraint firstAttribute="width" constant="180" id="uXs-we-SW4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Search (modal)"/>
                                 <connections>
-                                    <action selector="onButtonPressed:" destination="VTI-Oh-IWu" eventType="touchUpInside" id="iAQ-g6-FkP"/>
+                                    <action selector="onOpenSearchPressed:" destination="VTI-Oh-IWu" eventType="touchUpInside" id="iAQ-g6-FkP"/>
                                 </connections>
                             </button>
                         </subviews>

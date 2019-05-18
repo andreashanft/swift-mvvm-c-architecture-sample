@@ -12,8 +12,8 @@ import Reusable
 
 class SettingsCoordinator: CoordinatorType, NavigatableChildCoordinator {
     public typealias ControllerType = UINavigationController
-    public var controllerStorage: UINavigationController?
-    public var parent: NavigatableCoordinator?
+    weak var controllerStorage: UINavigationController?
+    weak var parent: NavigatableCoordinator?
 
     func instantiateViewController() -> UINavigationController {
         let settingsController = SettingsViewController.instantiate()

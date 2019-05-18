@@ -15,4 +15,13 @@ class SearchViewController: UIViewController, StoryboardBased {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func onClosePressed(_ sender: Any) {
+        viewModel?.closePressed()
+        view.backgroundColor = .gray
+    }
+    
+    @IBAction func onOpenUnavailableRoute(_ sender: Any) {
+        viewModel?.unavailableRoutePressed()
+    }
 }
