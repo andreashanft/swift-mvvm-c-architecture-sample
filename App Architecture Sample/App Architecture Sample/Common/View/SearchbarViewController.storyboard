@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ObC-dA-Cia">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Searchbar View Controller-->
+        <scene sceneID="vgZ-3J-H0p">
+            <objects>
+                <viewController id="ObC-dA-Cia" customClass="SearchbarViewController" customModule="App_Architecture_Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="shh-X4-wEK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="24c-9r-rqs">
+                                <rect key="frame" x="16" y="16" width="288" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wP-s9-wjb">
+                                        <rect key="frame" x="0.0" y="0.0" width="212" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="textFieldDidChange:" destination="ObC-dA-Cia" eventType="editingChanged" id="me5-Ka-FXA"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4aS-5Z-uL9">
+                                        <rect key="frame" x="228" y="0.0" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="cnA-1S-8Rm"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="onCancelButtonPressed:" destination="ObC-dA-Cia" eventType="touchUpInside" id="fva-ke-iNK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="efs-on-lbE" firstAttribute="trailing" secondItem="24c-9r-rqs" secondAttribute="trailing" constant="16" id="SMV-VN-6c3"/>
+                            <constraint firstItem="24c-9r-rqs" firstAttribute="leading" secondItem="efs-on-lbE" secondAttribute="leading" constant="16" id="uOo-UT-r24"/>
+                            <constraint firstItem="24c-9r-rqs" firstAttribute="top" secondItem="efs-on-lbE" secondAttribute="top" constant="16" id="xwk-0S-WiO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="efs-on-lbE"/>
+                    </view>
+                    <size key="freeformSize" width="320" height="80"/>
+                    <connections>
+                        <outlet property="inputTextField" destination="1wP-s9-wjb" id="ssw-xt-wSM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xQ4-dS-Zla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35.625" y="-96.25"/>
+        </scene>
+    </scenes>
+</document>

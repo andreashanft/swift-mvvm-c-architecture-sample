@@ -4,6 +4,12 @@ PODS:
     - Reusable/View (= 4.1.0)
   - Reusable/Storyboard (4.1.0)
   - Reusable/View (4.1.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
   - Swinject (2.6.0)
   - SwinjectAutoregistration (2.6.0):
     - Swinject (~> 2.6)
@@ -12,6 +18,8 @@ PODS:
 
 DEPENDENCIES:
   - Reusable
+  - RxCocoa
+  - RxSwift
   - Swinject
   - SwinjectAutoregistration
   - SwinjectStoryboard
@@ -19,16 +27,22 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Reusable
+    - RxCocoa
+    - RxRelay
+    - RxSwift
     - Swinject
     - SwinjectAutoregistration
     - SwinjectStoryboard
 
 SPEC CHECKSUMS:
   Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
   SwinjectAutoregistration: 93a908f7543c401b0c315305ac0ae501efdbce89
   SwinjectStoryboard: 32512ef16c2b0ff5b8f823b23539c4a50f6d3383
 
-PODFILE CHECKSUM: 22085e34df517359124686438801e64522b87ab9
+PODFILE CHECKSUM: d652f3b5ff33c856f03e23c297f63ab17b3abce7
 
 COCOAPODS: 1.6.1

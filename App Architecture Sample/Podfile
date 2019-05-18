@@ -6,5 +6,7 @@ target 'App Architecture Sample' do
 	pod 'Swinject'
 	pod 'SwinjectStoryboard'
 	pod 'SwinjectAutoregistration'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end

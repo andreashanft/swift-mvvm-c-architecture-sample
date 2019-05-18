@@ -11,8 +11,7 @@ import Swinject
 import SwinjectStoryboard
 import SwinjectAutoregistration
 
-public func registerDependencies() {
-    let container = SwinjectStoryboard.defaultContainer
+public func registerDependencies(using container: Container = SwinjectStoryboard.defaultContainer) {
     
     container.autoregister(DashboardCoordinator.self, initializer: DashboardCoordinator.init).inObjectScope(.container)
     container.autoregister(SettingsCoordinator.self, initializer: SettingsCoordinator.init).inObjectScope(.container)
@@ -27,6 +26,11 @@ public func registerDependencies() {
         controller.viewModel = resolver ~> SearchViewModel.self
     }
     container.autoregister(SearchViewModel.self, initializer: SearchViewModel.init)
+    
+    container.storyboardInitCompleted(SearchbarViewController.self) { resolver, controller in
+        controller.viewModel = resolver ~> SearchbarViewModel.self
+    }
+    container.autoregister(SearchbarViewModel.self, initializer: SearchbarViewModel.init)
 
     container.storyboardInitCompleted(SettingsViewController.self) { resolver, controller in
         controller.viewModel = resolver ~> SettingsViewModel.self

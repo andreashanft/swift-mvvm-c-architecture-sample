@@ -79,6 +79,9 @@ public extension NavigatableChildCoordinator {
     }
 }
 
+/**
+ This serves as a sample implementation.
+ */
 class SomeCoordinatorImplementation: CoordinatorType, NavigatableChildCoordinator {
     public typealias ControllerType = UITabBarController
     weak var controllerStorage: UITabBarController?

@@ -24,17 +24,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D43-L0-gor">
-                                <rect key="frame" x="70" y="74" width="180" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="34q-dY-AWI"/>
-                                    <constraint firstAttribute="width" constant="180" id="dNq-R4-SQb"/>
-                                </constraints>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="onClosePressed:" destination="Pfj-zi-rlw" eventType="touchUpInside" id="D8k-Ob-ToA"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghg-cq-Bxw">
                                 <rect key="frame" x="70" y="120" width="180" height="30"/>
                                 <constraints>
@@ -44,26 +33,71 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                 <state key="normal" title="Try opening unavailable route (crash!)"/>
                                 <connections>
-                                    <action selector="onClosePressed:" destination="Pfj-zi-rlw" eventType="touchUpInside" id="K58-Oy-D4C"/>
                                     <action selector="onOpenUnavailableRoute:" destination="Pfj-zi-rlw" eventType="touchUpInside" id="3FO-2N-rNt"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-VN-PGC">
+                                <rect key="frame" x="0.0" y="20" width="320" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Lzh-Gy-DTb"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="R3V-gD-xcC" kind="embed" id="HS3-kn-iwD"/>
+                                </connections>
+                            </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input mirror" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2Y-Jx-oz4">
+                                <rect key="frame" x="16" y="374" width="288" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="1FK-o1-zr3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsL-eA-G5Y">
+                                <rect key="frame" x="70" y="438" width="180" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rtw-lf-ybR"/>
+                                    <constraint firstAttribute="width" constant="180" id="s67-UB-FO8"/>
+                                </constraints>
+                                <state key="normal" title="Change Placeholder Text"/>
+                                <connections>
+                                    <action selector="onChangePlaceholderPressed:" destination="Pfj-zi-rlw" eventType="touchUpInside" id="MAp-14-gP9"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bZO-gS-muG" firstAttribute="centerY" secondItem="s0B-DS-f2y" secondAttribute="centerY" id="7SK-dx-Ktf"/>
+                            <constraint firstItem="jH6-VN-PGC" firstAttribute="top" secondItem="NKM-Wm-diH" secondAttribute="top" id="9l6-FH-bxX"/>
+                            <constraint firstItem="qsL-eA-G5Y" firstAttribute="centerX" secondItem="s0B-DS-f2y" secondAttribute="centerX" id="Bog-Js-TWc"/>
+                            <constraint firstItem="NKM-Wm-diH" firstAttribute="trailing" secondItem="x2Y-Jx-oz4" secondAttribute="trailing" constant="16" id="CC0-tO-2QE"/>
+                            <constraint firstItem="x2Y-Jx-oz4" firstAttribute="top" secondItem="bZO-gS-muG" secondAttribute="bottom" constant="79.5" id="Mod-ni-Snw"/>
+                            <constraint firstItem="jH6-VN-PGC" firstAttribute="trailing" secondItem="NKM-Wm-diH" secondAttribute="trailing" id="TdX-OD-jT9"/>
                             <constraint firstItem="ghg-cq-Bxw" firstAttribute="centerX" secondItem="s0B-DS-f2y" secondAttribute="centerX" id="ZRs-Sf-5hf"/>
-                            <constraint firstItem="D43-L0-gor" firstAttribute="top" secondItem="NKM-Wm-diH" secondAttribute="top" constant="54" id="bsQ-aY-mkY"/>
+                            <constraint firstItem="qsL-eA-G5Y" firstAttribute="top" secondItem="x2Y-Jx-oz4" secondAttribute="bottom" constant="32" id="cBV-Gt-frO"/>
+                            <constraint firstItem="x2Y-Jx-oz4" firstAttribute="leading" secondItem="NKM-Wm-diH" secondAttribute="leading" constant="16" id="dnC-0O-AEN"/>
                             <constraint firstItem="bZO-gS-muG" firstAttribute="centerX" secondItem="s0B-DS-f2y" secondAttribute="centerX" id="erf-h4-SLc"/>
-                            <constraint firstItem="ghg-cq-Bxw" firstAttribute="top" secondItem="D43-L0-gor" secondAttribute="bottom" constant="16" id="nHI-lX-snk"/>
-                            <constraint firstItem="D43-L0-gor" firstAttribute="centerX" secondItem="s0B-DS-f2y" secondAttribute="centerX" id="p6D-cr-sWF"/>
+                            <constraint firstItem="jH6-VN-PGC" firstAttribute="leading" secondItem="NKM-Wm-diH" secondAttribute="leading" id="mte-D2-CCZ"/>
+                            <constraint firstItem="ghg-cq-Bxw" firstAttribute="top" secondItem="jH6-VN-PGC" secondAttribute="bottom" constant="20" id="nHI-lX-snk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NKM-Wm-diH"/>
                     </view>
+                    <connections>
+                        <outlet property="inputMirrorLabel" destination="x2Y-Jx-oz4" id="8sH-Gt-G3B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wqu-Nh-8AH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="-198"/>
+            <point key="canvasLocation" x="401.25" y="-198.59154929577466"/>
+        </scene>
+        <!--SearchbarViewController-->
+        <scene sceneID="6ZG-Sv-jov">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchbarViewController" id="R3V-gD-xcC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4c-hI-cpS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1199" y="-442"/>
         </scene>
     </scenes>
 </document>
